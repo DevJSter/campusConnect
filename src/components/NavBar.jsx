@@ -6,7 +6,7 @@ import LogOutIcon from "../img/logout_icon.svg"
 import MenuIcon from "../img/menu_icon.svg"
 import UserDashboard from "../img/user_dashboard.png"
 import AdminDashboard from "../img/admin_dashboard.png"
-import Logo from "../img/shirt-svgrepo-com.svg"
+import Logo from "../img/Logo.png"
 import PrivacyPolicyIcon from "../img/privacy_policy.png"
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, Link, useNavigate } from 'react-router-dom';
@@ -74,9 +74,9 @@ const NavBar = () => {
             {/* desktop & tablet */}
             <div className="hidden md:flex w-full h-full items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <img src={Logo} width='30px' alt="logo" />
+                    <img src={Logo} width='45px' alt="logo" />
                     <Link to="/">
-                        <p className="text-lightModeTextColor text-2xl "><span className="font-semibold">Job</span>Set</p>
+                        <p className="text-lightModeTextColor text-2xl "><span className="font-semibold">Connect</span></p>
                     </Link>
                 </div>
                 <div className="flex items-center gap-8">
@@ -125,7 +125,7 @@ const NavBar = () => {
                                 <li className="flex gap-3 text-sm text-lightModeTextColor hover:text-lightPrimary cursor-pointer" onClick={dropDownHandle}>
                                     <img src={ProfileImage} className="w-12 min-w-[40px] h-12 min-h-[40px] cursor-pointer rounded-full" alt="profile_picture" />
                                     <div className="flex flex-col justify-center">
-                                        <div>vwakesahu</div>
+                                        <div>Lionel Messi</div>
                                         <div className="text-lighttextGray text-sm -mt-1">Ui/Ux Designer</div>
                                     </div>
                                     <img src={DownArrow} alt="drop_down_menu" />

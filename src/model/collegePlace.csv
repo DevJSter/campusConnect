@@ -1,4 +1,4 @@
-Age,Gender,Stream,Internships,CGPA,Hostel,HistoryOfBacklogs,PlacedOrNot
+Age,Gender,Stream,Internships,CGPA,Certification,HistoryOfBacklogs,PlacedOrNot
 22,Male,Electronics And Communication,1,8,1,1,1
 21,Female,Computer Science,0,7,1,1,1
 22,Female,Information Technology,1,6,0,0,1
