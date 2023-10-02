@@ -17,7 +17,7 @@ const Footer = () => {
         <div className=' md:mt-40 p-16'>
           <div className="flex flex-col items-center justify-center">
             <div className="text-lightCard md:text-2xl">
-              JobSet
+              CampusConnect
             </div>
             <div className="text-footerSubtitle font-extralight md:text-xl">
               Job set toh life set
@@ -28,7 +28,7 @@ const Footer = () => {
               <img src={MailIcon} alt="mail_icon" className='w-7' />
               <div>Mail</div>
               <div className='text-sm font-thin'>
-                jobset@support.com
+                CampusConnect@support.com
               </div>
             </div>
             <div className='flex flex-col items-center justify-center gap-2'>
@@ -47,7 +47,7 @@ const Footer = () => {
             </div>
           </div>
           <div className='mt-9 flex justify-between text-lightCard'>
-            <div>Copyright © 2023 Jobset. All rights reserved.</div>
+            <div>Copyright © 2023 CampusConnect. All rights reserved.</div>
             <div className='flex gap-2'>
               <img src={GithubIcon} alt="github_icon" className='w-10' />
               <img src={InstagramIcon} alt="instagram_icon" className='w-10' />
@@ -62,7 +62,7 @@ const Footer = () => {
       {/* For Mobiles */}
       <div className='md:hidden bg-lightPrimary p-8'>
         <div className='flex flex-col items-center justify-center'>
-          <p className='text-lightCard text-xl'>JobSet</p>
+          <p className='text-lightCard text-xl'>CampusConnect</p>
           <p className='text-footerSubtitle font-extralight text-sm'>Job set tho life set</p>
         </div>
 
@@ -71,7 +71,7 @@ const Footer = () => {
               <img src={MailIcon} alt="mail_icon" className='w-5' />
               <div>Mail</div>
               <div className='text-[10px] font-thin'>
-                jobset@support.com
+                CampusConnect@support.com
               </div>
             </div>
             <div className='flex flex-col items-center justify-center gap-2'>
@@ -92,7 +92,7 @@ const Footer = () => {
 
         </div>
         <div className='mt-9 text-[12px] flex items-center justify-between text-lightCard'>
-            <div>Copyright © 2023 Jobset. All rights reserved.</div>
+            <div>Copyright © 2023 CampusConnect. All rights reserved.</div>
             <div className='flex gap-2'>
               <img src={GithubIcon} alt="github_icon" className='w-5' />
               <img src={InstagramIcon} alt="instagram_icon" className='w-5' />
