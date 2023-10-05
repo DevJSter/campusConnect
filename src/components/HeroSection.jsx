@@ -12,6 +12,7 @@ const HeroSection = () => {
         animationData: animationData,
       };
     
+      
       return (
         <section className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full" id="home">
       <div className="flex-1 flex flex-col items-start justify-center gap-6 p-8">
