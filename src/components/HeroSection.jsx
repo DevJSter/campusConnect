@@ -6,11 +6,6 @@ import animationData from '../img/Animation.json';
 
 
 const HeroSection = () => {
-    const lottieOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-      };
     
       
       return (
