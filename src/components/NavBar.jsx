@@ -70,8 +70,7 @@ const NavBar = () => {
 
 
     return (
-        <div className="fixed top-0 w-full bg-gradient-to-b bg-sky-15 shadow-md z-1000">
-        <header className={`${headerClasses}`} style={{backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.0.2), rgba(0,0,0,0))',
+        <header className={`${headerClasses}`} fixed top-0 w-full bg-gradient-to-b bg-sky-15 shadow-md z-1000 style={{backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.0.2), rgba(0,0,0,0))',
                                                     backgroundColor: 'bg-sky-15'}} >
         {/* desktop & tablet */}
           <div className="hidden md:flex w-full h-full items-center justify-between">
@@ -350,7 +349,6 @@ const NavBar = () => {
                 </div>
             </div>
         </header>
-    </div>
     );
 };
 
