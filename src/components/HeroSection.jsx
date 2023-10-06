@@ -1,16 +1,11 @@
 import React from "react";
 import HeroBg from '../img/hero_bg.png'
 import SearchInputEl from "./SearchInput";
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import animationData from '../img/Animation.json';
 
 
 const HeroSection = () => {
-    const lottieOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-      };
     
       
       return (
@@ -32,7 +27,7 @@ const HeroSection = () => {
         </div>
       </div>
       <div className="flex-1 flex items-center relative -mt-24 md:mt-0">
-        <Lottie options={lottieOptions} height={570} width={570} />
+        <Lottie animationData={animationData}/>
       </div>
     </section>
   );
