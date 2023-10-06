@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import animationData from '../img/Animation02.json';
 
 const FindJobsGlimpse = () => {
@@ -45,13 +45,7 @@ const FindJobsGlimpse = () => {
   </div>
 
   <div className="image-container py-2 flex-1 flex items-center relative">
-    <Lottie options={{
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-      }} 
-      height={500} 
-      width={500} 
+    <Lottie animationData={animationData}
     />
   </div>
 </section>
