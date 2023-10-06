@@ -1,6 +1,4 @@
 import React from 'react';
-
-
 import AWSImg from '../img/aws_img.png'
 //import FreeImg from '../img/free_img.png'
 import IBMImg from '../img/ibm_img.png'
@@ -11,6 +9,40 @@ import MicrosoftImg from '../img/ms_img.png'
 
 
 const posts = [
+  {
+    id: 1,
+
+    company: 'DSA (C++)',
+    location: 'Earn a learning Badge',
+    jobTitle: 'Cloud Essential Learning Plan',
+    employmentType: 'Duration: 6 Months',
+    description: 'Learn AWS Cloud technology,foundational AWS Cloud concepts, AWS services, security,architecture, pricing, and support.',
+    salary: 'FREE',
+    image: AWSImg
+
+  },
+
+  {
+    id: 2,
+    company: 'DSA (JAVA)',
+    location: 'Earn Level 2 badge',
+    jobTitle: 'Big Data 01',
+    employmentType: 'Duration: 6 Months',
+    description: 'Learn what is Big Data and Intro to tools like Apache Hadoop',
+    salary: 'FREE',
+    image: IBMImg
+  },
+
+  {
+    id: 3,
+    company: 'DSA(PYTHON)',
+    location: 'via classcentral.com',
+    jobTitle: 'Artificial Intelligence on Microsoft Azure',
+    employmentType: 'Duration: 6 Months',
+    description: 'Learn key AI concepts of machine learning, anomaly detection, computer vision, natural language processing, and conversational AI.',
+    salary: 'FREE',
+    image: MicrosoftImg
+  },
   {
     id: 1,
 
@@ -45,59 +77,74 @@ const posts = [
     salary: 'FREE',
     image: MicrosoftImg
   },
+  {
+    id: 1,
+
+    company: 'Amazon Web Services',
+    location: 'Earn a learning Badge',
+    jobTitle: 'Cloud Essential Learning Plan',
+    employmentType: 'Duration: 13hrs 35m',
+    description: 'Learn AWS Cloud technology,foundational AWS Cloud concepts, AWS services, security,architecture, pricing, and support.',
+    salary: 'FREE',
+    image: AWSImg
+
+  },
 
   {
-    id: 4,
+    id: 2,
     company: 'International Business Machines-IBM',
-    location: 'via classcentral.com',
-    jobTitle: 'Network Security & Database Vulnerabilities',
-    employmentType: 'Duration: 15hrs',
-    description: 'Learn  Local Area Networks, TCP/IP, the OSI Framework and routing basics,how networking affects security systems within an organization, network components that guard an organization from cybersecurity attacks.',
+    location: 'Earn Level 2 badge',
+    jobTitle: 'Big Data 01',
+    employmentType: 'Duration: 3hrs',
+    description: 'Learn what is Big Data and Intro to tools like Apache Hadoop',
     salary: 'FREE',
     image: IBMImg
   },
 
   {
-    id: 5,
-    company: 'Google Cloud',
+    id: 3,
+    company: 'Microsoft',
     location: 'via classcentral.com',
-    jobTitle: 'Prepare for Google Cloud professional Data Engineer',
-    employmentType: 'Duration: 6 weeks',
-    description: 'Learn to qualify the exam on Data Engineer; Data Engineers are responsible for designing, building, and maintaining the infrastructure that supports data storage, processing, and retrieval.',
+    jobTitle: 'Artificial Intelligence on Microsoft Azure',
+    employmentType: 'Duration: 1 week',
+    description: 'Learn key AI concepts of machine learning, anomaly detection, computer vision, natural language processing, and conversational AI.',
     salary: 'FREE',
-    image: GoogleImg
+    image: MicrosoftImg
+  },
+  {
+    id: 1,
+
+    company: 'Amazon Web Services',
+    location: 'Earn a learning Badge',
+    jobTitle: 'Cloud Essential Learning Plan',
+    employmentType: 'Duration: 13hrs 35m',
+    description: 'Learn AWS Cloud technology,foundational AWS Cloud concepts, AWS services, security,architecture, pricing, and support.',
+    salary: 'FREE',
+    image: AWSImg
+
   },
 
   {
-    id: 6,
-    company: 'Microsoft',
-    location: 'via classcentral',
-    jobTitle: 'Introduction to Computer and Operating Systems & Security',
-    employmentType: 'Duration: 14hrs',
-    description: 'Learn to identify the various components of a computer system,various components of a computer system interact with an operating system, basics of the cybersecurity landscape,& business computing environments',
+    id: 2,
+    company: 'International Business Machines-IBM',
+    location: 'Earn Level 2 badge',
+    jobTitle: 'Big Data 01',
+    employmentType: 'Duration: 3hrs',
+    description: 'Learn what is Big Data and Intro to tools like Apache Hadoop',
     salary: 'FREE',
-    image: MicrosoftImg
+    image: IBMImg
   },
+
   {
-    id: 7,
+    id: 3,
     company: 'Microsoft',
-    location: 'via classcentral',
-    jobTitle: 'Introduction to Computer and Operating Systems & Security',
-    employmentType: 'Duration: 14hrs',
-    description: 'Learn to identify the various components of a computer system,various components of a computer system interact with an operating system, basics of the cybersecurity landscape,& business computing environments',
+    location: 'via classcentral.com',
+    jobTitle: 'Artificial Intelligence on Microsoft Azure',
+    employmentType: 'Duration: 1 week',
+    description: 'Learn key AI concepts of machine learning, anomaly detection, computer vision, natural language processing, and conversational AI.',
     salary: 'FREE',
     image: MicrosoftImg
-  },
-  {
-    id: 8,
-    company: 'Microsoft',
-    location: 'via classcentral',
-    jobTitle: 'Introduction to Computer and Operating Systems & Security',
-    employmentType: 'Duration: 14hrs',
-    description: 'Learn to identify the various components of a computer system,various components of a computer system interact with an operating system, basics of the cybersecurity landscape,& business computing environments',
-    salary: 'FREE',
-    image: MicrosoftImg
-  },
+  }
 
 ];
 
@@ -137,10 +184,14 @@ const HomeCards = () => {
   return (
     <div className="w-full bg-[#fff]">
       <div className="p-9 h-full">
-        <p className="text-[1.8rem] font-semibold" style={{marginBottom: '1.5rem'}}>
-          <span className="text-lightPrimary">Recent</span> Posts</p>
+      <p className="text-[1.8rem] font-semibold text-center" style={{marginBottom: '1.5rem'}}>
+  <span className="text-lightPrimary">Placement Ready</span> Material's
+</p>
+
+          
         
-        <div className="h-full w-full grid md:grid-cols-4 gap-6 my-6 md:px-16">
+        
+        <div className="h-full w-full grid md:grid-cols-3 gap-9 my-6 md:px-16">
           {visiblePosts.map(post => (
 
             <div key={post.id} className="md:w-300 p-8 min-w-260 bg-lightCard backdrop-blur-md rounded-3xl flex flex-col justify-center drop-shadow-lg gap-4 hover:scale-105 transition-all duration-300">
