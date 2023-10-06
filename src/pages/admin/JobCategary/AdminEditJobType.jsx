@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "@react-spring/web";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { editJobTypeAction } from "../../../redux/actions/jobTypeAction";
 import { useNavigate, useParams } from "react-router-dom";
 

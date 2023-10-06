@@ -70,7 +70,7 @@ const NavBar = () => {
 
 
     return (
-        <header className={`${headerClasses}`} style={{backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0))'}}>
+        <header className={`${headerClasses}`} style={{backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0))'}}>
         {/* desktop & tablet */}
           <div className="hidden md:flex w-full h-full items-center justify-between">
             <div className="flex items-center gap-2">

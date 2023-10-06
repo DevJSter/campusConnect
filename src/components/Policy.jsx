@@ -7,9 +7,7 @@ const Policy = () => {
       {/* Your Navbar component here */}
 
       {/* Sample Image */}
-      <div className="max-w-full">
-        <img src="/privacy.png" alt="Sample Image" className="w-full" />
-      </div>
+    
 
       {/* Privacy Policy Section */}
       <div className="grid grid-cols-2">

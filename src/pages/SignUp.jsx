@@ -1,7 +1,6 @@
 import React from "react";
 import { useSpring, animated } from "@react-spring/web";
 import { useState } from "react";
-import bg_img from "../img/bg_bg.png";
 import { useDispatch } from "react-redux";
 import { userSignUpAction } from "../redux/actions/userAction";
 import { useNavigate } from "react-router-dom";

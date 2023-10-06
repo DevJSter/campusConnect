@@ -24,6 +24,7 @@ const FindJob = () => {
     const [fullTime, setFullTime] = useState(false);
     const [freelance, setFreelance] = useState(false);
     const [partTime, setPartTime] = useState(false);
+    const [internship, setInternship] = useState(false);
 
     // const [eL, setEL] = useState(false);
     // const [interm, setInterm] = useState(false);
@@ -60,6 +61,7 @@ const FindJob = () => {
         setFullTime(false);
         setFreelance(false);
         setPartTime(false);
+        setInternship(false);
     };
 
     return (
@@ -121,6 +123,10 @@ const FindJob = () => {
                                             <label>
                                                 <input type="checkbox" className=" bg-lighttextGray " checked={partTime} onChange={() => setPartTime(!partTime)} />
                                                 <span className="lg:ml-6 font-medium">Part Time</span>
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" className=" bg-lighttextGray " checked={internship} onChange={() => setPartTime(!partTime)} />
+                                                <span className="lg:ml-6 font-medium">Internship</span>
                                             </label>
                                         </div>
                                     </div>
@@ -301,6 +307,10 @@ const FindJob = () => {
                                                     <label>
                                                         <input type="checkbox" className=" bg-lighttextGray " checked={partTime} onChange={() => setPartTime(!partTime)} />
                                                         <span className="ml-6 font-medium">Part Time</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" className=" bg-lighttextGray " checked={internship} onChange={() => setInternship(!internship)} />
+                                                        <span className="ml-6 font-medium">Internship</span>
                                                     </label>
                                                 </div>
                                             </div>

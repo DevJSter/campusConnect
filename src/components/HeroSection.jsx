@@ -1,5 +1,4 @@
 import React from "react";
-import HeroBg from '../img/hero_bg.png'
 import SearchInputEl from "./SearchInput";
 import Lottie from 'lottie-react';
 import animationData from '../img/Animation.json';
