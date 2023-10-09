@@ -70,15 +70,15 @@ const NavBar = () => {
 
 
     return (
-        <header className={`${headerClasses}`} style={{backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0))'}}>
-        {/* desktop & tablet */}
-          <div className="hidden md:flex w-full h-full items-center justify-between">
-            <div className="flex items-center gap-2">
-              <img src={Logo} width='45px' alt="logo" />
-              <Link to="/">
-                <p className="text-lightModeTextColor text-2xl "><span className="font-semibold">Connect</span></p>
-              </Link>
-            </div>
+        <header className={`${headerClasses}`} style={{ backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0))' }}>
+            {/* desktop & tablet */}
+            <div className="hidden md:flex w-full h-full items-center justify-between">
+                <div className="flex items-center gap-2">
+                    <img src={Logo} width='45px' alt="logo" />
+                    <Link to="/">
+                        <p className="text-lightModeTextColor text-2xl "><span className="font-semibold">Connect</span></p>
+                    </Link>
+                </div>
                 <div className="flex items-center gap-8">
                     <ul className="flex items-center gap-10">
                         <NavLink
@@ -133,15 +133,21 @@ const NavBar = () => {
                             </>
                         ) : (
                             <>
-                                <Link to='/login'>
-                                    <li className="text-lg text-lightModeTextColor hover:text-lightPrimary duration-100 transition-all ease-in-out cursor-pointer">
-                                        Login
-                                    </li>
-                                </Link>
+                                <NavLink
+                                    className={({ isActive }) => (`text-lg relative block text-lightModeTextColor hover:text-lightPrimary cursor-pointer after:scale-x-0 ${isActive ? activeStyles : " "}`)}
+                                    // onClick={() => handleItemClick(1)}
+                                    to='/dashboard'
+                                >
+                                    <span className="relative">
+                                        Dashboard
+                                        {/* {selectedItem === 1 && (
+                                        <span className="border-b-2 ease-in-out border-lightPrimary animate-border-animation"></span>
+                                    )} */}
+                                    </span>
+                                </NavLink>
                                 <Link to='/register'>
                                     <li className="rounded-full border border-lightPrimary py-3 px-9 text-lg text-lightModeTextColor hover:shadow-lg duration-100 transition-all ease-in-out cursor-pointer">
-                                        Register Now
-                                    </li>
+                                        Register Now/ Login                                    </li>
                                 </Link>
                             </>
                         )}
@@ -299,7 +305,7 @@ const NavBar = () => {
                                     <li
                                         className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
                                         onClick={() => setIsMenu(false)}
-                                    ><Link to="/user/dashboard">
+                                    ><Link to="./src/components/dashboard.jsx">
                                             Dashboard
                                         </Link>
                                     </li>
@@ -328,7 +334,7 @@ const NavBar = () => {
 
 
                             <p
-                                className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-lightPrimary gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-lightCard text-base" 
+                                className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-lightPrimary gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-lightCard text-base"
                                 onClick={() => setIsMenu(false)}
                             >
                                 {isLoggedIn ? (
