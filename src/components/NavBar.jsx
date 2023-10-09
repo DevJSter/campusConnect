@@ -70,15 +70,15 @@ const NavBar = () => {
 
 
     return (
-        <header className={`${headerClasses}`} style={{ backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0))' }}>
-            {/* desktop & tablet */}
-            <div className="hidden md:flex w-full h-full items-center justify-between">
-                <div className="flex items-center gap-2">
-                    <img src={Logo} width='45px' alt="logo" />
-                    <Link to="/">
-                        <p className="text-lightModeTextColor text-2xl "><span className="font-semibold">Connect</span></p>
-                    </Link>
-                </div>
+        <header className={`${headerClasses}`} style={{backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0))'}}>
+        {/* desktop & tablet */}
+          <div className="hidden md:flex w-full h-full items-center justify-between">
+            <div className="flex items-center gap-2">
+              <img src={Logo} width='45px' alt="logo" />
+              <Link to="/">
+                <p className="text-lightModeTextColor text-2xl "><span className="font-semibold">Connect</span></p>
+              </Link>
+            </div>
                 <div className="flex items-center gap-8">
                     <ul className="flex items-center gap-10">
                         <NavLink
@@ -354,6 +354,7 @@ const NavBar = () => {
                 </div>
             </div>
         </header>
+        // </div>
     );
 };
 

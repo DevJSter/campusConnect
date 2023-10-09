@@ -185,7 +185,7 @@ const HomeCards = () => {
     <div className="w-full bg-[#fff]">
       <div className="p-9 h-full">
       <p className="text-[1.8rem] font-semibold text-center" style={{marginBottom: '1.5rem'}}>
-  <span className="text-lightPrimary">Placement Ready</span> Material's
+  <span className="text-lightPrimary">Placement Ready</span> Materials
 </p>
 
           
