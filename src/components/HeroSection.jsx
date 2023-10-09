@@ -5,10 +5,10 @@ import animationData from '../img/Animation.json';
 
 
 const HeroSection = () => {
-    
-      
-      return (
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full" id="home">
+
+
+  return (
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full" id="home">
       <div className="flex-1 flex flex-col items-start justify-center gap-6 p-8">
         <p className="text-[2.5rem] text-center md:text-left lg:text-[3.5rem] font-bold tracking-wide text-headingColor md:w-[85%] md:leading-tight">
           <span className="text-lightPrimary text-[3rem] lg:text-[4rem]">Campus Connect</span> hai, toh life set hai!
@@ -26,7 +26,7 @@ const HeroSection = () => {
         </div>
       </div>
       <div className="flex-1 flex items-center relative -mt-24 md:mt-0">
-        <Lottie animationData={animationData}/>
+        <Lottie animationData={animationData} />
       </div>
     </section>
   );
@@ -34,4 +34,3 @@ const HeroSection = () => {
 
 export default HeroSection;
 
-    

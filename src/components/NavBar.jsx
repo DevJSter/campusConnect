@@ -70,7 +70,7 @@ const NavBar = () => {
 
 
     return (
-        <div className="fixed top-0 w-full bg-gradient-to-b bg-sky-15 shadow-md z-1000 ">
+        // <div className="fixed top-0 w-full bg-gradient-to-b bg-sky-15 shadow-md z-1000 ">
         <header className={`${headerClasses}`} style={{backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.0.2), rgba(0,0,0,0))',
                                                     backgroundColor: 'bg-sky-15'}} >
         {/* desktop & tablet */}
@@ -350,7 +350,7 @@ const NavBar = () => {
                 </div>
             </div>
         </header>
-        </div>
+        // </div>
     );
 };
 
