@@ -1,310 +1,94 @@
-import React from "react";
-import { useSpring, animated } from "@react-spring/web";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { userSignUpAction } from "../redux/actions/userAction";
-import { useNavigate } from "react-router-dom";
-import login from '../img/login.png';
-const SignUp = () => {
-  const navigate = useNavigate();
-  const [showForm, setShowForm] = useState(false);
-  const disptach = useDispatch();
-  // Animation for the form entrance
-  const formAnimation = useSpring({
-    opacity: showForm ? 1 : 0,
-    transform: showForm ? "translateY(0)" : "translateY(50px)",
-  });
+import React, { useEffect, useState } from "react";
+import { auth, provider } from "./config";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import Home from "./Home";
+import { motion } from "framer-motion";
+import { TbLogout } from "react-icons/tb";
+import { AiOutlinePlus } from "react-icons/ai";
+import Avatar from "../img/avatar.png";
+import { Link } from "react-router-dom";
 
-  const [formData, setFormData] = useState({
-    firstName: "",
-    middleName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    role: 0,
-    gender: "FeMale",
-    city: "",
-    state: "",
-    dateOfBirth: "",
-    contact: "",
-  });
+const LogIn = () => {
+  const [value, setValue] = useState("");
+  const [user, setUser] = useState(null);
+  const [isMenu, setIsMenu] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  const login = async () => {
+    if (!user) {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        setUser(result.user);
+        localStorage.setItem("user", JSON.stringify(result.user));
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      setIsMenu(!isMenu);
+    }
   };
 
-  const handleSubmit = async(e) => {
-    e.preventDefault();
-    // You can perform form submission or validation here
-    await disptach(
-      userSignUpAction({
-        firstName: formData.firstName,
-        middleName: formData.middleName,
-        lastName: formData.lastName,
-        email: formData.email,
-        password: formData.password,
-        role: formData.value,
-        gender: formData.gender,
-        city: formData.city,
-        state: formData.state,
-        dateOfBirth: formData.dateOfBirth,
-        contact: formData.contact,
-      })
-    );
-    setFormData({
-      firstName: "",
-      middleName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      role: 0,
-      gender: "FeMale",
-      city: "",
-      state: "",
-      dateOfBirth: "",
-      contact: "",
-    });
-    navigate('/login');
-    console.log(formData);
+  const logout = () => {
+    setIsMenu(false);
+    localStorage.clear();
+    setUser(null);
   };
 
-  // Show the form after a slight delay for the entrance animation
-  setTimeout(() => {
-    setShowForm(true);
-  }, 200);
+  useEffect(() => {
+    setValue(localStorage.getItem("email"));
+    const userFromLocalStorage = localStorage.getItem("user");
+    if (userFromLocalStorage) {
+      setUser(JSON.parse(userFromLocalStorage));
+    }
+  }, []);
 
   return (
-    <div
-      className="flex items-center justify-center min-h-screen p-4 bg-center bg-cover"
-      style={{ backgroundImage: `url(${login})`, backgroundSize: 'cover', backgroundPosition: 'center',padding:'50x' }}
-    >
-      <div className="shadow-xl max-w-md w-full p-8 bg-white rounded-lg">
-        <animated.div style={formAnimation}>
-          <h2 className="text-2xl font-bold mb-4 text-center">SIGN-UP</h2><br/>
-          <form onSubmit={handleSubmit}>
-            <div className="flex gap-4 mb-4">
-              <div className="flex-1">
-                <label
-                  htmlFor="firstName"
-                  className="block text-black font-bold"
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  className="mt-1 p-2 w-full border rounded-md"
-                  required
-                />
-              </div>
-              <div className="flex-1">
-                <label
-                  htmlFor="middleName"
-                  className="block text-black font-bold"
-                >
-                  Middle Name
-                </label>
-                <input
-                  type="text"
-                  id="middleName"
-                  name="middleName"
-                  value={formData.middleName}
-                  onChange={handleChange}
-                  className="mt-1 p-2 w-full border rounded-md"
-                />
-              </div>
-            </div>
-            <div className="flex gap-4 mb-4">
-              <div className="flex-1">
-                <label
-                  htmlFor="lastName"
-                  className="block text-black font-bold"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  className="mt-1 p-2 w-full border rounded-md"
-                  required
-                />
-              </div>
-              <div className="flex-1">
-                <label
-                  htmlFor="email"
-                  className="block text-black font-bold"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="mt-1 p-2 w-full border rounded-md"
-                  required
-                />
-              </div>
-            </div>
-            <div className="flex gap-4 mb-4">
-              <div className="flex-1">
-                <label
-                  htmlFor="password"
-                  className="block text-black font-bold"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="mt-1 p-2 w-full border rounded-md"
-                  required
-                />
-              </div>
-              <div className="flex-1">
-                <label htmlFor="role" className="block text-black font-bold">
-                  Role
-                </label>
-                <select
-                  id="role"
-                  name="role"
-                  value={formData.role}
-                  onChange={handleChange}
-                  className="mt-1 p-2 w-full border rounded-md"
-                  required
-                >
-                  <option value="0">User</option>
-                </select>
-              </div>
-            </div>
-            <div className="flex gap-4 mb-4">
-              <div className="flex-1">
-                <label
-                  htmlFor="gender"
-                  className="block text-black font-bold"
-                >
-                  Gender
-                </label>
-                <div className="flex mt-1">
-                  <label className="mr-4">
-                    <input
-                      type="radio"
-                      name="gender"
-                      value="Male"
-                      checked={formData.gender === "Male"}
-                      onChange={handleChange}
-                    />
-                    <span className="ml-2 text-black">Male</span>
-                  </label>
-                  <label>
-                    <input
-                      type="radio"
-                      name="gender"
-                      value="FeMale"
-                      checked={formData.gender === "FeMale"}
-                      onChange={handleChange}
-                    />
-                    <span className="ml-2 text-black">Female</span>
-                  </label>
-                </div>
-              </div>
-              <div className="flex-1">
-                <label
-                  htmlFor="dateOfBirth"
-                  className="block text-black font-bold"
-                >
-                  Date of Birth
-                </label>
-                <input
-                  type="date"
-                  id="dateOfBirth"
-                  name="dateOfBirth"
-                  value={formData.dateOfBirth}
-                  onChange={handleChange}
-                  className="mt-1 p-2 w-full border rounded-md"
-                  required
-                />
-              </div>
-            </div>
-            <div className="mb-4">
-              <label htmlFor="city" className="block text-black font-bold">
-                City
-              </label>
-              <input
-                type="text"
-                id="city"
-                name="city"
-                value={formData.city}
-                onChange={handleChange}
-                className="mt-1 p-2 w-full border rounded-md"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="state" className="block text-black font-bold">
-                State
-              </label>
-              <input
-                type="text"
-                id="state"
-                name="state"
-                value={formData.state}
-                onChange={handleChange}
-                className="mt-1 p-2 w-full border rounded-md"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="contact"
-                className="block text-black font-bold"
+    <div>
+      {value ? (
+        <Home />
+      ) : (
+        <div className="relative flex items-center gap">
+          <div className="relative">
+            <motion.img
+              whileTap={{ scale: 0.6 }}
+              src={user ? user.photoURL : Avatar}
+              className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
+              alt="userprofile"
+              onClick={login}
+            />
+            {isMenu && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.6 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.6 }}
+                className="w-40 bg-green-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
               >
-                Contact
-              </label>
-              <input
-                type="text"
-                id="contact"
-                name="contact"
-                value={formData.contact}
-                onChange={handleChange}
-                className="mt-1 p-2 w-full border rounded-md"
-                required
-              />
-            </div>
-            <div className="mt-8">
-              <center>
-              <button
-                type="submit"
-                className="px-4 py-2 bg-white text-lightPrimary rounded-md w-full hover:shadow-lg"
-              >
-                Submit
-              </button>
-              </center>
-            </div>
-            <p className="mt-4 text-center text-black">
-              Already have an account?
-            </p>
-          </form>
-        </animated.div>
-      </div>
+                {user && user.email === "viveksahu_ce_2021@ltce.in" && (
+                  <Link to={"/createItem"}>
+                    <p
+                      className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base"
+                      onClick={() => setIsMenu(false)}
+                    >
+                      New Item <AiOutlinePlus />
+                    </p>
+                  </Link>
+                )}
+
+                {user && (
+                  <p
+                    className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base"
+                    onClick={logout}
+                  >
+                    Log Out &nbsp; &nbsp;
+                    <TbLogout />
+                  </p>
+                )}
+              </motion.div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
-    
   );
- 
 };
 
-export default SignUp;
+export default LogIn;
