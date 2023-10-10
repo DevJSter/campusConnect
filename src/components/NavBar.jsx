@@ -12,6 +12,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 import { userLogOutAction } from "../redux/actions/userAction";
+import SignUp from '../pages/SignUp'
+
+
 
 const NavBar = () => {
     const [isMenu, setIsMenu] = useState(false);
@@ -57,6 +60,8 @@ const NavBar = () => {
         }, 500);
     }
 
+    
+
     // Check if user was logged in previously or not
     useEffect(() => {
         if (userInfo) {
@@ -70,15 +75,19 @@ const NavBar = () => {
 
 
     return (
-        <header className={`${headerClasses}`} style={{backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0))'}}>
-        {/* desktop & tablet */}
-          <div className="hidden md:flex w-full h-full items-center justify-between">
-            <div className="flex items-center gap-2">
-              <img src={Logo} width='45px' alt="logo" />
-              <Link to="/">
-                <p className="text-lightModeTextColor text-2xl "><span className="font-semibold">Connect</span></p>
-              </Link>
-            </div>
+        // <div className="fixed top-0 w-full bg-gradient-to-b bg-sky-15 shadow-md z-1000 ">
+        <header className={`${headerClasses}`} style={{
+            backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.0.2), rgba(0,0,0,0))',
+            backgroundColor: 'bg-sky-15'
+        }} >
+            {/* desktop & tablet */}
+            <div className="hidden md:flex w-full h-full items-center justify-between">
+                <div className="flex items-center gap-2">
+                    <img src={Logo} width='45px' alt="logo" />
+                    <Link to="/">
+                        <p className="text-lightModeTextColor text-2xl "><span className="font-semibold">Connect</span></p>
+                    </Link>
+                </div>
                 <div className="flex items-center gap-8">
                     <ul className="flex items-center gap-10">
                         <NavLink
@@ -133,21 +142,13 @@ const NavBar = () => {
                             </>
                         ) : (
                             <>
-                                <NavLink
-                                    className={({ isActive }) => (`text-lg relative block text-lightModeTextColor hover:text-lightPrimary cursor-pointer after:scale-x-0 ${isActive ? activeStyles : " "}`)}
-                                    // onClick={() => handleItemClick(1)}
-                                    to='/dashboard'
-                                >
-                                    <span className="relative">
-                                        Dashboard
-                                        {/* {selectedItem === 1 && (
-                                        <span className="border-b-2 ease-in-out border-lightPrimary animate-border-animation"></span>
-                                    )} */}
-                                    </span>
-                                </NavLink>
-                                <Link to='/register'>
-                                    <li className="rounded-full border border-lightPrimary py-3 px-9 text-lg text-lightModeTextColor hover:shadow-lg duration-100 transition-all ease-in-out cursor-pointer">
-                                        Register Now/ Login                                    </li>
+                                <Link to='/login'>
+                                    <li className="text-lg text-lightModeTextColor hover:text-lightPrimary duration-100 transition-all ease-in-out cursor-pointer">
+                                        DashBoard
+                                    </li>
+                                </Link>
+                                <Link>
+                                    <SignUp />
                                 </Link>
                             </>
                         )}
@@ -234,105 +235,7 @@ const NavBar = () => {
                     </NavLink>
                 </div>
 
-                <div className="relative z-50">
-                    {isLoggedIn ? (
-                        <img
-                            // whileTap={{ scale: 0.6 }}
-                            src={ProfileImage}
-                            className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
-                            alt="userprofile"
-                            onClick={dropDownHandle}
-                        />) : (
-                        <img
-                            // whileTap={{ scale: 0.6 }}
-                            src={MenuIcon}
-                            className="w-10 h-10 drop-shadow-xl cursor-pointer"
-                            alt="menu"
-                            onClick={dropDownHandle}
-                        />
-                    )}
-
-                    {isMenu && (
-                        <div
-                            // initial={{ opacity: 0, scale: 0.6 }}
-                            // animate={{ opacity: 1, scale: 1 }}
-                            // exit={{ opacity: 0, scale: 0.6 }}
-                            className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0 z-50"
-                        >
-
-
-
-
-                            <ul className="flex flex-col ">
-                                <li
-                                    className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                                    onClick={() => setIsMenu(false)}
-                                >
-                                    <NavLink to={'/'}>
-                                        Home
-                                    </NavLink>
-                                </li>
-                                <li
-                                    className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                                    onClick={() => setIsMenu(false)}
-                                >
-                                    <NavLink to={'/resources'}>
-                                        Resources
-                                    </NavLink>
-
-                                </li>
-                                <li
-                                    className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                                    onClick={() => setIsMenu(false)}
-                                >
-                                    <NavLink to={'findjob'}>
-                                        Find Job
-                                    </NavLink>
-                                </li>
-
-
-                                {userInfo && userInfo.role === 1 &&
-                                    <Link to='/admin/dashboard'
-                                        className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                                        onClick={() => setIsMenu(false)}
-                                    >
-                                        Admin Dashboard
-                                    </Link>
-                                }
-
-                                {userInfo && userInfo.role === 0 &&
-
-                                    <li
-                                        className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                                        onClick={() => setIsMenu(false)}
-                                    ><Link to="./src/components/dashboard.jsx">
-                                            Dashboard
-                                        </Link>
-                                    </li>
-
-                                }
-
-                                {isLoggedIn ? (
-                                    <div>
-                                        {/* <li
-                                            className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                                            onClick={() => setIsMenu(false)}
-                                        >
-                                            Edit Profile
-                                        </li> */}
-                                        <Link to={'/policy'}>
-                                            <li
-                                                className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                                                onClick={() => setIsMenu(false)}
-                                            >
-                                                Privacy Policy
-                                            </li>
-                                        </Link>
-                                    </div>) : ('')}
-
-                            </ul>
-
-
+                
                             <p
                                 className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-lightPrimary gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-lightCard text-base"
                                 onClick={() => setIsMenu(false)}
@@ -349,9 +252,7 @@ const NavBar = () => {
                                         </div>
                                     </Link>)}
                             </p>
-                        </div>
-                    )}
-                </div>
+                     
             </div>
         </header>
         // </div>
