@@ -147,7 +147,7 @@ const NavBar = () => {
                                         DashBoard
                                     </li>
                                 </Link>
-                                <Link>
+                                <Link >
                                     <SignUp />
                                 </Link>
                             </>
@@ -235,7 +235,105 @@ const NavBar = () => {
                     </NavLink>
                 </div>
 
-                
+                <div className="relative z-50">
+                    {isLoggedIn ? (
+                        <img
+                            // whileTap={{ scale: 0.6 }}
+                            src={ProfileImage}
+                            className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
+                            alt="userprofile"
+                            onClick={dropDownHandle}
+                        />) : (
+                        <img
+                            // whileTap={{ scale: 0.6 }}
+                            src={MenuIcon}
+                            className="w-10 h-10 drop-shadow-xl cursor-pointer"
+                            alt="menu"
+                            onClick={dropDownHandle}
+                        />
+                    )}
+
+                    {isMenu && (
+                        <div
+                            // initial={{ opacity: 0, scale: 0.6 }}
+                            // animate={{ opacity: 1, scale: 1 }}
+                            // exit={{ opacity: 0, scale: 0.6 }}
+                            className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0 z-50"
+                        >
+
+
+
+
+                            <ul className="flex flex-col ">
+                                <li
+                                    className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                                    onClick={() => setIsMenu(false)}
+                                >
+                                    <NavLink to={'/'}>
+                                        Home
+                                    </NavLink>
+                                </li>
+                                <li
+                                    className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                                    onClick={() => setIsMenu(false)}
+                                >
+                                    <NavLink to={'/resources'}>
+                                        Resources
+                                    </NavLink>
+
+                                </li>
+                                <li
+                                    className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                                    onClick={() => setIsMenu(false)}
+                                >
+                                    <NavLink to={'findjob'}>
+                                        Find Job
+                                    </NavLink>
+                                </li>
+
+
+                                {userInfo && userInfo.role === 1 &&
+                                    <Link to='/admin/dashboard'
+                                        className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                                        onClick={() => setIsMenu(false)}
+                                    >
+                                        Admin Dashboard
+                                    </Link>
+                                }
+
+                                {userInfo && userInfo.role === 0 &&
+
+                                    <li
+                                        className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                                        onClick={() => setIsMenu(false)}
+                                    ><Link to="/user/dashboard">
+                                            Dashboard
+                                        </Link>
+                                    </li>
+
+                                }
+
+                                {isLoggedIn ? (
+                                    <div>
+                                        {/* <li
+                                            className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                                            onClick={() => setIsMenu(false)}
+                                        >
+                                            Edit Profile
+                                        </li> */}
+                                        <Link to={'/policy'}>
+                                            <li
+                                                className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                                                onClick={() => setIsMenu(false)}
+                                            >
+                                                Privacy Policy
+                                            </li>
+                                        </Link>
+                                    </div>) : ('')}
+
+                            </ul>
+
+
                             <p
                                 className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-lightPrimary gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-lightCard text-base"
                                 onClick={() => setIsMenu(false)}
@@ -252,7 +350,9 @@ const NavBar = () => {
                                         </div>
                                     </Link>)}
                             </p>
-                     
+                        </div>
+                    )}
+                </div>
             </div>
         </header>
         // </div>
