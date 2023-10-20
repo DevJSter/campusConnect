@@ -13,6 +13,7 @@ import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 import { userLogOutAction } from "../redux/actions/userAction";
 import SignUp from '../pages/SignUp'
+import Login from '../pages/Login'
 
 
 
@@ -60,7 +61,7 @@ const NavBar = () => {
         }, 500);
     }
 
-    
+
 
     // Check if user was logged in previously or not
     useEffect(() => {
@@ -142,7 +143,7 @@ const NavBar = () => {
                             </>
                         ) : (
                             <>
-                                <Link to='/login'>
+                                <Link to='https://campus-connect-dash-board-mocha.vercel.app/auth/login'>
                                     <li className="text-lg text-lightModeTextColor hover:text-lightPrimary duration-100 transition-all ease-in-out cursor-pointer">
                                         DashBoard
                                     </li>
@@ -344,11 +345,11 @@ const NavBar = () => {
                                             <p>Logout</p>
                                         </div>
                                     </Link>) :
-                                    (<Link to={'/login'}>
-                                        <div>
-                                            <p>Login / Sign Up</p>
-                                        </div>
-                                    </Link>)}
+                                    (
+                                            <Link >
+                                                <Login/>
+                                            </Link>
+                                    )}
                             </p>
                         </div>
                     )}
