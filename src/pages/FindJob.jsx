@@ -11,78 +11,87 @@ import SlcComponent from "../components/SlcComponent";
 import SearchInputEl from "../components/SearchInput";
 
 const dummyColleges = [
-    {
-      id: 1,
-      name: "IIT Banglore",
-      location: "Bangalore",
-      naacGrade: "A+",
-      description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae quae vitae vel tempora voluptate ducimus facilis velit. Aperiam ullam, enim placeat commodi amet odio voluptate culpa natus, pariatur ab deserunt!"
-    },
-    {
-      id: 2,
-      name: "Mumbai University",
-      location: "Mumbai",
-      naacGrade: "A",
-      description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae quae vitae vel tempora voluptate ducimus facilis velit. Aperiam ullam, enim placeat commodi amet odio voluptate culpa natus, pariatur ab deserunt!"
-    },
-    {
-      id: 3,
-      name: "City College",
-      location: "Kolkata",
-      naacGrade: "A+",
-      description: "City College is a prestigious institution in Kolkata known for its excellence in both arts and science programs."
-    },
-    {
-      id: 4,
-      name: "Tech Institute",
-      location: "Chennai",
-      naacGrade: "B",
-      description: "Tech Institute offers a wide range of engineering and technology programs in the heart of Chennai."
-    },
-    {
-      id: 5,
-      name: "Green Valley University",
-      location: "Pune",
-      naacGrade: "A",
-      description: "Green Valley University is located in the lush green surroundings of Pune, offering quality education and research opportunities."
-    },
-    {
-      id: 6,
-      name: "Heritage College",
-      location: "Jaipur",
-      naacGrade: "B+",
-      description: "Heritage College is known for its rich cultural heritage and academic excellence in Jaipur."
-    },
-    {
-      id: 7,
-      name: "Science Academy",
-      location: "Delhi",
-      naacGrade: "A+",
-      description: "Science Academy in Delhi is renowned for its advanced scientific research and academic programs."
-    },
-    {
-      id: 8,
-      name: "Royal College",
-      location: "Hyderabad",
-      naacGrade: "A",
-      description: "Royal College is situated in the royal city of Hyderabad, offering a range of arts and science programs."
-    },
-    {
-      id: 9,
-      name: "Tech Park Institute",
-      location: "Bengaluru",
-      naacGrade: "B",
-      description: "Tech Park Institute in Bengaluru is known for its cutting-edge technology programs and industry partnerships."
-    },
-    {
-      id: 10,
-      name: "Coastal University",
-      location: "Goa",
-      naacGrade: "A+",
-      description: "Coastal University, located in the serene coastal region of Goa, offers a diverse range of academic programs and research opportunities."
-    }
-  ];
-  
+  {
+    id: 1,
+    name: "IIT Banglore",
+    location: "Bangalore",
+    naacGrade: "A+",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae quae vitae vel tempora voluptate ducimus facilis velit. Aperiam ullam, enim placeat commodi amet odio voluptate culpa natus, pariatur ab deserunt!",
+  },
+  {
+    id: 2,
+    name: "Mumbai University",
+    location: "Mumbai",
+    naacGrade: "A",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae quae vitae vel tempora voluptate ducimus facilis velit. Aperiam ullam, enim placeat commodi amet odio voluptate culpa natus, pariatur ab deserunt!",
+  },
+  {
+    id: 3,
+    name: "City College",
+    location: "Kolkata",
+    naacGrade: "A+",
+    description:
+      "City College is a prestigious institution in Kolkata known for its excellence in both arts and science programs.",
+  },
+  {
+    id: 4,
+    name: "Tech Institute",
+    location: "Chennai",
+    naacGrade: "B",
+    description:
+      "Tech Institute offers a wide range of engineering and technology programs in the heart of Chennai.",
+  },
+  {
+    id: 5,
+    name: "Green Valley University",
+    location: "Pune",
+    naacGrade: "A",
+    description:
+      "Green Valley University is located in the lush green surroundings of Pune, offering quality education and research opportunities.",
+  },
+  {
+    id: 6,
+    name: "Heritage College",
+    location: "Jaipur",
+    naacGrade: "B+",
+    description:
+      "Heritage College is known for its rich cultural heritage and academic excellence in Jaipur.",
+  },
+  {
+    id: 7,
+    name: "Science Academy",
+    location: "Delhi",
+    naacGrade: "A+",
+    description:
+      "Science Academy in Delhi is renowned for its advanced scientific research and academic programs.",
+  },
+  {
+    id: 8,
+    name: "Royal College",
+    location: "Hyderabad",
+    naacGrade: "A",
+    description:
+      "Royal College is situated in the royal city of Hyderabad, offering a range of arts and science programs.",
+  },
+  {
+    id: 9,
+    name: "Tech Park Institute",
+    location: "Bengaluru",
+    naacGrade: "B",
+    description:
+      "Tech Park Institute in Bengaluru is known for its cutting-edge technology programs and industry partnerships.",
+  },
+  {
+    id: 10,
+    name: "Coastal University",
+    location: "Goa",
+    naacGrade: "A+",
+    description:
+      "Coastal University, located in the serene coastal region of Goa, offers a diverse range of academic programs and research opportunities.",
+  },
+];
 
 const FindJob = () => {
   const [colleges, setColleges] = useState(dummyColleges);
@@ -293,8 +302,7 @@ const FindJob = () => {
                       </ul> */}
 
                       <ul>
-
-                      <li
+                        <li
                           className="flex items-center gap-3"
                           onClick={() => handleLocationFilter("")}
                         >
@@ -349,7 +357,11 @@ const FindJob = () => {
 
                 <ul>
                   {filteredColleges.map((college) => (
-                    <CardElement id={college.id} jobTitle={college.name} description={college.description} />
+                    <CardElement
+                      id={college.id}
+                      jobTitle={college.name}
+                      description={college.description}
+                    />
                   ))}
                 </ul>
 
@@ -564,9 +576,13 @@ const FindJob = () => {
         
         </div> */}
         <div>
-        {filteredColleges.map((college) => (
-                    <CardElement id={college.id} jobTitle={college.name} description={college.description} />
-                  ))}
+          {filteredColleges.map((college) => (
+            <CardElement
+              id={college.id}
+              jobTitle={college.name}
+              description={college.description}
+            />
+          ))}
         </div>
 
         {/* Map through jobData to render job items */}
