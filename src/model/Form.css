@@ -1,0 +1,27 @@
+.card {
+ border-radius: 10px;
+ padding: 40px 20px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ margin: auto;
+ max-width: 400px;
+}
+
+
+input {
+ width: calc(100% - 16px); 
+ padding: 10px;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ margin-bottom: 10px; 
+}
+
+button {
+ background-color: rgb(13,27,307);
+ display: block; 
+ margin: auto; 
+ padding : 10px 20px;
+}
+
+button:hover {
+ background-color:#ff5042;
+} 
