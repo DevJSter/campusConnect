@@ -1,30 +1,52 @@
 import React, { useState } from 'react';
-import './Form.css' 
 import axios from 'axios';
-
+import './Form.css';
 const PredictionForm = () => {
   const [formData, setFormData] = useState({
     Age: 20,
     Gender: 1,
-    Stream: 2,
+    Stream: 1,
     Internships: 1,
     CGPA: 8,
     Certification: 4,
-    HistoryOfBacklogs: 1
+    HistoryOfBacklogs: 1,
   });
+
+  const [result, setResult] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     let updatedValue;
-    
+
     if (name === "Gender") {
       updatedValue = value.toLowerCase() === "male" ? 1 : 0;
     } else if (name === "Stream") {
-      updatedValue = value;
+      switch (value.toLowerCase()) {
+        case "civil":
+          updatedValue = 0;
+          break;
+        case "computer science":
+          updatedValue = 1;
+          break;
+        case "electrical":
+          updatedValue = 2;
+          break;
+        case "electronics and telecommunication":
+          updatedValue = 3;
+          break;
+        case "information technology":
+          updatedValue = 4;
+          break;
+        case "mechanical":
+          updatedValue = 5;
+          break;
+        default:
+          updatedValue = value;
+      }
     } else {
       updatedValue = value;
     }
-  
+
     setFormData({ ...formData, [name]: updatedValue });
   };
 
@@ -33,18 +55,18 @@ const PredictionForm = () => {
 
     try {
       const response = await axios.post(
-        'https://ad95-34-91-108-103.ngrok.io/placement_prediction',
+        'https://2be6-34-91-108-103.ngrok.io/placement_prediction',
         formData
       );
 
-      console.log('Prediction Result:', response.data);
+      // Assuming the API response contains { "result": "Prediction placed" }
+      setResult(response.data.result);
     } catch (error) {
       console.error('Error making prediction:', error);
     }
   };
 
-  return (
- 
+  return ( 
         <div className="card">
           <h1>Prediction Form</h1>
           <form onSubmit={handleSubmit}>
@@ -127,8 +149,8 @@ const PredictionForm = () => {
         </div>
         <button className="button" type="submit">Submit</button>
           </form>
-        </div>
-      
+          <h2 className='tag' > Prediction {result} </h2>
+        </div>      
   )
 };
 
