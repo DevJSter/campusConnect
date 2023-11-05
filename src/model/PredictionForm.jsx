@@ -12,6 +12,34 @@ const PredictionForm = () => {
     HistoryOfBacklogs: 1
     
   });
+  const url = 'https://ad95-34-91-108-103.ngrok.io/placement_prediction';
+
+const input_data_for_model = {
+    Age: 20,
+    CGPA: 8,
+    Stream: 1,
+    Certification: 4,
+    Internships: 1,
+    HistoryOfBacklogs: 1,
+    Gender: 1
+};
+
+const input_json = JSON.stringify(input_data_for_model);
+
+fetch(url, {
+    method: 'POST',
+    body: input_json,
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+.then(response => response.json())
+.then(data => {
+    console.log(data.result); // This will log the "result" value to the console
+})
+.catch(error => {
+    console.error('Request failed:', error);
+});
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -59,7 +87,7 @@ const PredictionForm = () => {
 
     try {
       const response = await axios.post(
-        'https://d3d6-35-184-57-221.ngrok.io/placement_prediction',
+        'https://ad95-34-91-108-103.ngrok.io/placement_prediction',
         formData
       );
 
