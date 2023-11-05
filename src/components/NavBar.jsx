@@ -144,16 +144,13 @@ const NavBar = () => {
                             </>
                         ) : (
                             <>
-                                <Link to='https://campus-connect-dash-board-mocha.vercel.app/auth/login'>
+                                <Link to='https://c-connect-dashboard.netlify.app/'>
                                     <li className="text-lg text-lightModeTextColor hover:text-lightPrimary duration-100 transition-all ease-in-out cursor-pointer">
                                         DashBoard
                                     </li>
                                 </Link>
-                                <Link to='/PredictionForm'>
-                                    <li className="text-lg text-lightModeTextColor hover:text-lightPrimary duration-100 transition-all ease-in-out cursor-pointer">
-                                        Prediction
-                                    </li>
-                                </Link>
+                                
+                               
                                 <Link >
                                     <SignUp />
                                 </Link>
@@ -297,7 +294,16 @@ const NavBar = () => {
                                         Find Job
                                     </NavLink>
                                 </li>
-
+                                <li
+                                    className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                                    onClick={() => setIsMenu(false)}
+                                >
+                                    <NavLink to={'https://c-connect-dashboard.netlify.app/'}>
+                                        Dashboard
+                                    </NavLink>
+                                </li>
+                            
+                            
 
                                 {userInfo && userInfo.role === 1 &&
                                     <Link to='/admin/dashboard'

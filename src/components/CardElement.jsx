@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 const CardElement = ({ jobTitle, description, category, location, id, salary }) => {
     return (
         <div>
