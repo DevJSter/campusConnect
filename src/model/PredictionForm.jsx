@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
 
 const PredictionForm = () => {
   const [formData, setFormData] = useState({
@@ -74,7 +72,6 @@ const PredictionForm = () => {
 
   return (
     <div>
-      <NavBar />
       <h1>Prediction Form</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -142,7 +139,6 @@ const PredictionForm = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
-      <Footer />
     </div>
   );
 };

@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { userLogOutAction } from "../redux/actions/userAction";
 import SignUp from '../pages/SignUp'
 import Login from '../pages/Login'
+import PredictionForm from "../model/PredictionForm";
 
 
 
@@ -146,6 +147,11 @@ const NavBar = () => {
                                 <Link to='https://campus-connect-dash-board-mocha.vercel.app/auth/login'>
                                     <li className="text-lg text-lightModeTextColor hover:text-lightPrimary duration-100 transition-all ease-in-out cursor-pointer">
                                         DashBoard
+                                    </li>
+                                </Link>
+                                <Link to='/PredictionForm'>
+                                    <li className="text-lg text-lightModeTextColor hover:text-lightPrimary duration-100 transition-all ease-in-out cursor-pointer">
+                                        Prediction
                                     </li>
                                 </Link>
                                 <Link >
