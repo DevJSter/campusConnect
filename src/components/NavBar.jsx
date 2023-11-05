@@ -16,8 +16,6 @@ import SignUp from '../pages/SignUp'
 import Login from '../pages/Login'
 import PredictionForm from "../model/PredictionForm";
 
-
-
 const NavBar = () => {
     const [isMenu, setIsMenu] = useState(false);
     const [visible] = useState(true);
@@ -149,7 +147,7 @@ const NavBar = () => {
                                         DashBoard
                                     </li>
                                 </Link>
-                                <Link to='/PredictionForm'>
+                                <Link to='./model/PredictionForm'>
                                     <li className="text-lg text-lightModeTextColor hover:text-lightPrimary duration-100 transition-all ease-in-out cursor-pointer">
                                         Prediction
                                     </li>
@@ -309,7 +307,7 @@ const NavBar = () => {
                                 }
 
                                 {userInfo && userInfo.role === 0 &&
-
+                                
                                     <li
                                         className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
                                         onClick={() => setIsMenu(false)}
@@ -317,6 +315,7 @@ const NavBar = () => {
                                             Dashboard
                                         </Link>
                                     </li>
+                                
 
                                 }
 
