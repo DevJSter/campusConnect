@@ -13,6 +13,7 @@ const PredictionForm = () => {
     HistoryOfBacklogs: 1
   });
 
+  const[result , setResult] = useState("");
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     let updatedValue;
@@ -33,10 +34,10 @@ const PredictionForm = () => {
 
     try {
       const response = await axios.post(
-        'https://ad95-34-91-108-103.ngrok.io/placement_prediction',
+        'https://2be6-34-91-108-103.ngrok.io/placement_prediction',
         formData
       );
-
+      setResult(response.data.result);
       console.log('Prediction Result:', response.data);
     } catch (error) {
       console.error('Error making prediction:', error);
@@ -127,8 +128,8 @@ const PredictionForm = () => {
         </div>
         <button className="button" type="submit">Submit</button>
           </form>
-        </div>
-      
+          <h2> Placement Prediction : {result} </h2>
+        </div>      
   )
 };
 
