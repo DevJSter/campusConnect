@@ -149,6 +149,11 @@ const NavBar = () => {
                                         DashBoard
                                     </li>
                                 </Link>
+                                <Link to='./model/PredictionForm'>
+                                    <li className="text-lg text-lightModeTextColor hover:text-lightPrimary duration-100 transition-all ease-in-out cursor-pointer">
+                                        Predict Your Placements
+                                    </li>
+                                </Link>
                                 
                                
                                 <Link >
