@@ -6,7 +6,7 @@ const PredictionForm = () => {
   const [formData, setFormData] = useState({
     Age: 20,
     Gender: 1,
-    Stream: 1,
+    Stream: 2,
     Internships: 1,
     CGPA: 8,
     Certification: 4,
@@ -51,7 +51,7 @@ const PredictionForm = () => {
           <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>
-            Age:
+            Age: (1-25)
             <input
               type="number"
               name="Age"
@@ -62,9 +62,9 @@ const PredictionForm = () => {
         </div>
         <div className="form-group">
           <label>
-            Gender:
+            Gender: For Male Type 1/For Female Type 0
             <input
-              type="number"
+              type="text"
               name="Gender"
               value={formData.Gender}
               onChange={handleInputChange}
@@ -73,7 +73,7 @@ const PredictionForm = () => {
         </div>
         <div className="form-group">
           <label>
-            Stream:
+            Stream: Civil:0/CS:1/EE:2/EXTC:3/IT:4/Mech:5 
             <input
               type="text"
               name="Stream"
