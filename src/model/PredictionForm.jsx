@@ -38,7 +38,6 @@ const PredictionForm = () => {
       );
 
       console.log('Prediction Result:', response.data);
-      // Handle the prediction result as needed
     } catch (error) {
       console.error('Error making prediction:', error);
     }
@@ -126,7 +125,7 @@ const PredictionForm = () => {
             />
           </label>
         </div>
-        <button type="submit">Submit</button>
+        <button className="button" type="submit">Submit</button>
           </form>
         </div>
       
