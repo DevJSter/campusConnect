@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
 
 const PredictionForm = () => {
   const [formData, setFormData] = useState({
@@ -17,10 +15,43 @@ const PredictionForm = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    const updatedValue = name === "Gender" && value.toLowerCase() === "male" ? 1 : 0;
+    let updatedValue;
+    // Handle Gender input: 1 for "male" and 0 for "female"
+    if (name === "Gender") {
+      updatedValue = value.toLowerCase() === "male" ? 1 : 0;
+    }
+    // Handle Stream input: Assign numerical values based on specified stream names
+    else if (name === "Stream") {
+      switch (value.toLowerCase()) {
+        case "civil":
+          updatedValue = 0;
+          break;
+        case "computer science":
+          updatedValue = 1;
+          break;
+        case "electrical":
+          updatedValue = 2;
+          break;
+        case "electronics and telecommunication":
+          updatedValue = 3;
+          break;
+        case "information technology":
+          updatedValue = 4;
+          break;
+        case "mechanical":
+          updatedValue = 5;
+          break;
+        default:
+          updatedValue = value;
+      }
+    }
+    else {
+      updatedValue = value;
+    }
   
     setFormData({ ...formData, [name]: updatedValue });
   };
+  
   
 
   const handleSubmit = async (e) => {
@@ -41,7 +72,6 @@ const PredictionForm = () => {
 
   return (
     <div>
-      <NavBar />
       <h1>Prediction Form</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -109,7 +139,6 @@ const PredictionForm = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
-      <Footer />
     </div>
   );
 };
