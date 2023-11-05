@@ -315,51 +315,8 @@ const NavBar = () => {
                                         Predict Your Placements
                                     </NavLink>
                                 </li>
-                            
-                            
-
-                                {userInfo && userInfo.role === 1 &&
-                                    <Link to='/admin/dashboard'
-                                        className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                                        onClick={() => setIsMenu(false)}
-                                    >
-                                        Admin Dashboard
-                                    </Link>
-                                }
-
-                                {userInfo && userInfo.role === 0 &&
-
-                                    <li
-                                        className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                                        onClick={() => setIsMenu(false)}
-                                    ><Link to="/user/dashboard">
-                                            Dashboard
-                                        </Link>
-                                    </li>
-
-                                }
-
-                                {isLoggedIn ? (
-                                    <div>
-                                        {/* <li
-                                            className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                                            onClick={() => setIsMenu(false)}
-                                        >
-                                            Edit Profile
-                                        </li> */}
-                                        <Link to={'/policy'}>
-                                            <li
-                                                className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
-                                                onClick={() => setIsMenu(false)}
-                                            >
-                                                Privacy Policy
-                                            </li>
-                                        </Link>
-                                    </div>) : ('')}
 
                             </ul>
-
-
                             <p
                                 className="m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-lightPrimary gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-lightCard text-base"
                                 onClick={() => setIsMenu(false)}
