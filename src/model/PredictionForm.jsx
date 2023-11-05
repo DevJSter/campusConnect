@@ -17,8 +17,11 @@ const PredictionForm = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const updatedValue = name === "Gender" && value.toLowerCase() === "male" ? 1 : 0;
+  
+    setFormData({ ...formData, [name]: updatedValue });
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
