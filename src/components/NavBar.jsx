@@ -144,7 +144,7 @@ const NavBar = () => {
                             </>
                         ) : (
                             <>
-                                <Link to='https://c-connect-dashboard.netlify.app/'>
+                                <Link to='https://ltce-campus-connect-dashboard.netlify.app/'>
                                     <li className="text-lg text-lightModeTextColor hover:text-lightPrimary duration-100 transition-all ease-in-out cursor-pointer">
                                         DashBoard
                                     </li>
@@ -303,7 +303,7 @@ const NavBar = () => {
                                     className="text-base text-lightModeTextColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
                                     onClick={() => setIsMenu(false)}
                                 >
-                                    <NavLink to={'https://c-connect-dashboard.netlify.app/'}>
+                                    <NavLink to={'https://ltce-campus-connect-dashboard.netlify.app/'}>
                                         Dashboard
                                     </NavLink>
                                 </li>
