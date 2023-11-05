@@ -149,7 +149,7 @@ const PredictionForm = () => {
         </div>
         <button className="button" type="submit">Submit</button>
           </form>
-          <h2 className='tag' > P: {result} </h2>
+          <h2 className='tag' > Result: {result} </h2>
         </div>      
   )
 };
