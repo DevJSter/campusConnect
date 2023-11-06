@@ -55,7 +55,7 @@ const PredictionForm = () => {
 
     try {
       const response = await axios.post(
-        'https://9858-34-127-63-153.ngrok.io/placement_prediction',
+        'https://b672-104-154-163-53.ngrok.io/placement_prediction',
         formData
       );
 
