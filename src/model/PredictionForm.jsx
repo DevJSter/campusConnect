@@ -55,103 +55,120 @@ const PredictionForm = () => {
 
     try {
       const response = await axios.post(
-        'https://2be6-34-91-108-103.ngrok.io/placement_prediction',
+        'https://9858-34-127-63-153.ngrok.io/placement_prediction',
         formData
       );
 
-      // Assuming the API response contains { "result": "Prediction placed" }
-      setResult(response.data.result);
+      console.log('Prediction Result:', response.data);
+      setResult(response.data) // Fixed the typo here
     } catch (error) {
       console.error('Error making prediction:', error);
     }
   };
 
-  return ( 
-        <div className="card">
-          <h1>Prediction Form</h1>
-          <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>
-            Age: (1-25)
-            <input
-              type="number"
-              name="Age"
-              value={formData.Age}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            Gender: For Male Type 1/For Female Type 0
-            <input
-              type="text"
-              name="Gender"
-              value={formData.Gender}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            Stream: Civil:0/CS:1/EE:2/EXTC:3/IT:4/Mech:5 
-            <input
-              type="text"
-              name="Stream"
-              value={formData.Stream}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            Internships:
-            <input
-              type="number"
-              name="Internships"
-              value={formData.Internships}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            CGPA:
-            <input
-              type="number"
-              name="CGPA"
-              value={formData.CGPA}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            Certification:
-            <input
-              type="number"
-              name="Certification"
-              value={formData.Certification}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            HistoryOfBacklogs:
-            <input
-              type="number"
-              name="HistoryOfBacklogs"
-              value={formData.HistoryOfBacklogs}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
-        <button className="button" type="submit">Submit</button>
-          </form>
-          <h2 className='tag' > Result: {result} </h2>
-        </div>      
-  )
+  return (
+    <div className="card" style={{ maxWidth: "600px" }}>
+      <div style={{ textAlign: "center" }}>
+        <h1 style={{ color: "blue", fontSize: "2em" }}><b>Prediction Form :</b></h1>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <form onSubmit={handleSubmit}>
+          <div className="form-row">
+            <div className="form-group">
+              <label>
+                Age:
+                <input
+                  type="number"
+                  name="Age"
+                  value={formData.Age}
+                  onChange={handleInputChange}
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                Gender:
+                <select
+                  name="Gender"
+                  value={formData.Gender}
+                  onChange={handleInputChange}
+                >
+                  <option value="0">Male</option>
+                  <option value="1">Female</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>
+                Stream:
+                <select
+                  name="Stream"
+                  value={formData.Stream}
+                  onChange={handleInputChange}
+                >
+                  <option value="0">Civil</option>
+                  <option value="1">CS</option>
+                  <option value="2">EE</option>
+                  <option value="3">EXTC</option>
+                  <option value="4">IT</option>
+                  <option value="5">Mech</option>
+                </select>
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                Internships:
+                <input
+                  type="number"
+                  name="Internships"
+                  value={formData.Internships}
+                  onChange={handleInputChange}
+                />
+              </label>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>
+                CGPA:
+                <input
+                  type="number"
+                  name="CGPA"
+                  value={formData.CGPA}
+                  onChange={handleInputChange}
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                Certification:
+                <input
+                  type="number"
+                  name="Certification"
+                  value={formData.Certification}
+                  onChange={handleInputChange}
+                />
+              </label>
+            </div>
+          </div>
+          <div className="form-group">
+            <label>
+              HistoryOfBacklogs:
+              <input
+                type="number"
+                name="HistoryOfBacklogs"
+                value={formData.HistoryOfBacklogs}
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
+          <button className="button" type="submit">Submit</button>
+        </form>
+      </div>
+      <h2 className='tag' > Result: {result} </h2>
+    </div>
+  );
 };
 
 export default PredictionForm;
