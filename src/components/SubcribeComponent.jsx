@@ -1,6 +1,19 @@
 import React from 'react'
 
 const SubcribeComponent = () => {
+
+  // const form = useRef();
+
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+
+  //   emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+  //     .then((result) => {
+  //         console.log(result.text);
+  //     }, (error) => {
+  //         console.log(error.text);
+  //     });
+  // };
   return (
     <div className="flex items-center justify-center">
       <div className='absolute hidden bg-lightCard py-10 px-12 rounded-2xl md:flex items-center justify-center gap-9 shadow-[0px_15px_30px_10px_rgba(0,0,0,0.2)]'>
